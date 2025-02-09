@@ -1,1 +1,56 @@
+# Build Folders
+bin/
+obj/
+Debug/
+Release/
+
+# Visual Studio-specific
+.vscode/
 .vs/
+
+# User-specific
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.swp
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Configuration
+appsettings.*.json
+secrets.json
+
+# Dependency Caches
+node_modules/
+packages/
+bower_components/
+
+# Entity Framework Migrations
+Migrations/
+
+# IIS and IIS Express
+*.vspscc
+*.vssscc
+*.dbmdl
+*.pdb
+*.log
+iisexpress/
+
+# Resharper, Rider & other IDE settings
+*.DotSettings.user
+_ReSharper.Caches/
+
+# JetBrains Rider
+.idea/
+
+# SQL Server-related files
+*.mdf
+*.ldf
+
+# Publish Artifacts
+publish/
+dist/
