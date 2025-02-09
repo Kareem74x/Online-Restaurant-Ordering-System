@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C26FFB4F-B776-49DA-ADB1-4174CF51D69E}|RestaurantOrderingSystem\\RestaurantOrderingSystem.csproj|g:\\c#\\c# projects\\restaurantorderingsystem\\restaurantorderingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C26FFB4F-B776-49DA-ADB1-4174CF51D69E}|RestaurantOrderingSystem\\RestaurantOrderingSystem.csproj|solutionrelative:restaurantorderingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Data\\Migrations\\20250209174015_AddedImageUrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RestaurantOrderingSystem\\Data\\Migrations\\20250209174015_AddedImageUrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C26FFB4F-B776-49DA-ADB1-4174CF51D69E}|RestaurantOrderingSystem\\RestaurantOrderingSystem.csproj|g:\\c#\\c# projects\\restaurantorderingsystem\\restaurantorderingsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C26FFB4F-B776-49DA-ADB1-4174CF51D69E}|RestaurantOrderingSystem\\RestaurantOrderingSystem.csproj|solutionrelative:restaurantorderingsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C26FFB4F-B776-49DA-ADB1-4174CF51D69E}|RestaurantOrderingSystem\\RestaurantOrderingSystem.csproj|g:\\c#\\c# projects\\restaurantorderingsystem\\restaurantorderingsystem\\models\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C26FFB4F-B776-49DA-ADB1-4174CF51D69E}|RestaurantOrderingSystem\\RestaurantOrderingSystem.csproj|solutionrelative:restaurantorderingsystem\\models\\ingredient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C26FFB4F-B776-49DA-ADB1-4174CF51D69E}|RestaurantOrderingSystem\\RestaurantOrderingSystem.csproj|g:\\c#\\c# projects\\restaurantorderingsystem\\restaurantorderingsystem\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C26FFB4F-B776-49DA-ADB1-4174CF51D69E}|RestaurantOrderingSystem\\RestaurantOrderingSystem.csproj|solutionrelative:restaurantorderingsystem\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,27 +31,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Program.cs",
-              "RelativeDocumentMoniker": "RestaurantOrderingSystem\\Program.cs",
-              "ToolTip": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Program.cs",
-              "RelativeToolTip": "RestaurantOrderingSystem\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAmAAAAAAAAAA==",
+              "Title": "20250209174015_AddedImageUrl.cs",
+              "DocumentMoniker": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Data\\Migrations\\20250209174015_AddedImageUrl.cs",
+              "RelativeDocumentMoniker": "RestaurantOrderingSystem\\Data\\Migrations\\20250209174015_AddedImageUrl.cs",
+              "ToolTip": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Data\\Migrations\\20250209174015_AddedImageUrl.cs",
+              "RelativeToolTip": "RestaurantOrderingSystem\\Data\\Migrations\\20250209174015_AddedImageUrl.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T14:43:31.78Z",
+              "WhenOpened": "2025-02-09T17:40:15.64Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "RestaurantOrderingSystem\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "RestaurantOrderingSystem\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAAwA4AAAAIAAAAAAAAAA==",
+              "Title": "Ingredient.cs",
+              "DocumentMoniker": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Models\\Ingredient.cs",
+              "RelativeDocumentMoniker": "RestaurantOrderingSystem\\Models\\Ingredient.cs",
+              "ToolTip": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Models\\Ingredient.cs",
+              "RelativeToolTip": "RestaurantOrderingSystem\\Models\\Ingredient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T03:03:45.325Z",
+              "WhenOpened": "2025-02-09T17:38:58.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "RestaurantOrderingSystem\\Models\\Product.cs",
+              "ToolTip": "G:\\C#\\C# Projects\\RestaurantOrderingSystem\\RestaurantOrderingSystem\\Models\\Product.cs",
+              "RelativeToolTip": "RestaurantOrderingSystem\\Models\\Product.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T15:51:08.65Z",
               "EditorCaption": ""
             }
           ]
