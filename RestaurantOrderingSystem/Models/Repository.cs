@@ -17,18 +17,23 @@ namespace RestaurantOrderingSystem.Models
 
 
 
-
-
-
-
-        public Task AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _context.Update(entity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            T entity = await _dbSet.FindAsync(id);
+            _dbSet.Remove(entity);
+            await _context.SaveChangesAsync(); 
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
@@ -63,11 +68,6 @@ namespace RestaurantOrderingSystem.Models
 
             //Retrieve the matching record by primary key.
             return await query.FirstOrDefaultAsync(e => EF.Property<int>(e, primaryKeyName) == id);
-        }
-
-        public Task UpdateAsync(T entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }
