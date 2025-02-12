@@ -7,7 +7,6 @@ namespace RestaurantOrderingSystem.Controllers
     public class IngredientController : Controller
     {
         private Repository<Ingredient> ingredients;
-
         public IngredientController(ApplicationDbContext context)
         {
             ingredients = new Repository<Ingredient>(context);
