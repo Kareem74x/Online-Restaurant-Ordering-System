@@ -6,14 +6,14 @@ namespace RestaurantOrderingSystem.Controllers
 {
     public class ProductController : Controller
     {
-        private Repository<Product> prodcuts;
+        private Repository<Product> products;
         private Repository<Ingredient> ingredients;
         private Repository<Category> categories;
         private IWebHostEnvironment _webHostEnvironment;
 
         public ProductController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
-            prodcuts = new Repository<Product>(context);
+            products = new Repository<Product>(context);
             ingredients = new Repository<Ingredient>(context);
             categories = new Repository<Category>(context);
             _webHostEnvironment = webHostEnvironment; 
@@ -22,7 +22,7 @@ namespace RestaurantOrderingSystem.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await prodcuts.GetAllAsync());
+            return View(await products.GetAllAsync());
         }
 
         [HttpGet]
@@ -38,8 +38,10 @@ namespace RestaurantOrderingSystem.Controllers
             }
             else
             {
+                Product product = await products.GetByIdAsync(id, new QueryOptions<Product> { Includes = "ProductIngredients.Ingredient, Category" });
+
                 ViewBag.Operation = "Edit";
-                return View();
+                return View(product);
             }
         }
 
@@ -76,18 +78,47 @@ namespace RestaurantOrderingSystem.Controllers
                     }
 
 
-                    await prodcuts.AddAsync(product);
+                    await products.AddAsync(product);
                     return RedirectToAction("Index", "Product");
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Product");
+                    var existingProduct = await products.GetByIdAsync(product.ProductId, new QueryOptions<Product> { Includes = "ProductIngredients" });
+
+                    if(existingProduct== null)
+                    {
+
+                    }
+
+                    existingProduct.Name = product.Name;
+                    existingProduct.Description = product.Description;
+                    existingProduct.Price = product.Price;
+                    existingProduct.Stock = product.Stock;
+                    existingProduct.CategoryId = CatID;
+
+
+                    //Update Ingredients
+                    existingProduct.ProductIngredients?.Clear();
+                    foreach(int id in IngredientIds)
+                    {
+                        existingProduct.ProductIngredients?.Add(new ProductIngredient { IngredientId = id, ProductId = product.ProductId });
+                    }
+
+
+                    try
+                    {
+                        await products.UpdateAsync(existingProduct);
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError("", $"Error: {ex.GetBaseException().Message}");
+                        ViewBag.Ingredients = await ingredients.GetAllAsync();
+                        ViewBag.Categories = await categories.GetAllAsync();
+                        return View(product);
+                    }
                 }
             }
-            else
-            {
-                return View(product);
-            }
+            return RedirectToAction("Index", "Product");
         }
     }
 }
