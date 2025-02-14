@@ -27,7 +27,8 @@ namespace RestaurantOrderingSystem
             builder.Services.AddMemoryCache();
             builder.Services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(30); // Set your timeout here
+                //if there is no activity (no requests from the user) for 30 minutes, the session data will be cleared.
+                options.IdleTimeout = TimeSpan.FromMinutes(30); 
             });
 
 
