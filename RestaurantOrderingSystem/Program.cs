@@ -21,6 +21,18 @@ namespace RestaurantOrderingSystem
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
+
+
+            //Enable Sessions on the server
+            builder.Services.AddMemoryCache();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Set your timeout here
+            });
+
+
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -41,6 +53,9 @@ namespace RestaurantOrderingSystem
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Enable Sessions on the server
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",
