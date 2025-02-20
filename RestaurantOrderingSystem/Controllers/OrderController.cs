@@ -40,7 +40,7 @@ namespace RestaurantOrderingSystem.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> AddItem(int prodId,int ProdQty)
+        public async Task<IActionResult> AddItem(int prodId, int ProdQty)
         {
             var product = await _context.Products.FindAsync(prodId);
 
@@ -60,7 +60,7 @@ namespace RestaurantOrderingSystem.Controllers
             var existingItem = model.OrderItems.FirstOrDefault(oi => oi.ProductId == prodId);
 
             // if the product already exist , Update the quantity
-            if(existingItem !=null)
+            if (existingItem != null)
             {
                 existingItem.Quantity += ProdQty;
             }
@@ -82,7 +82,77 @@ namespace RestaurantOrderingSystem.Controllers
             HttpContext.Session.Set("OrderViewModel", model);
 
             // Redirect back to Create to show updated order items
-            return RedirectToAction("Create",model);
+            return RedirectToAction("Create", model);
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Cart()
+        {
+            var model = HttpContext.Session.Get<OrderViewModel>("OrderViewModel");
+
+            if (model == null || model.OrderItems.Count == 0)
+            {
+                return RedirectToAction("Create");
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> PlaceOrder()
+        {
+            var model = HttpContext.Session.Get<OrderViewModel>("OrderViewModel");
+            if (model == null || model.OrderItems.Count == 0)
+            {
+                return RedirectToAction("Create");
+            }
+
+            // Create new order entity
+            Order order = new Order
+            {
+                OrderDate = DateTime.Now,
+                TotalAmount = model.TotalAmount,
+                UserId = _userManager.GetUserId(User)
+            };
+
+            // Add OrderItems to the order entity
+            foreach (var item in model.OrderItems)
+            {
+                order.OrderItems.Add(new OrderItem
+                {
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity,
+                    Price = item.Price,
+                });
+            }
+
+            // Save order entity to DB
+            await _orders.AddAsync(order);
+
+            // Clear the OrderViewModel from the sesssion or other state mangement
+            HttpContext.Session.Remove("OrderViewModel");
+
+            // Redirect to order confirmation page
+            return RedirectToAction("ViewOrders");
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> ViewOrders()
+        {
+            var userId = _userManager.GetUserId(User);
+
+            var userOrders = await _orders.GetAllByIdAsync(userId, "UserId", new QueryOptions<Order>
+            {
+                Includes = "OrderItems.Product"
+            });
+
+            return View(userOrders);
         }
     }
 }
