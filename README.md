@@ -1,5 +1,4 @@
 # Online-Restaurant-Ordering-System
-# Restaurant Ordering System
 
 ## Overview
 The **Restaurant Ordering System** is an online platform built with **ASP.NET Core 8**, following the **MVC** architectural pattern. This application provides a seamless experience for users to browse, purchase, and manage products efficiently. With robust authentication and authorization mechanisms.
