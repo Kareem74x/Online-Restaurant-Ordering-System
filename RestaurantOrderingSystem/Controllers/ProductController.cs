@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RestaurantOrderingSystem.Data;
 using RestaurantOrderingSystem.Models;
 
@@ -46,6 +47,7 @@ namespace RestaurantOrderingSystem.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddEdit(Product product, int[] IngredientIds, int CatID)
         {
             if (ModelState.IsValid)
@@ -122,6 +124,7 @@ namespace RestaurantOrderingSystem.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             try
